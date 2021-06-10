@@ -11,23 +11,20 @@ Build
 -----
 
 The build depends on Docker and `make`. All other build dependencies are
-downloaded in the Docker containers. To invoke the build, run `make out/pkg`.
+downloaded in the Docker containers. To invoke the build, run `make pkg`.
 This builds Tailscale QPKG for different platforms and stores them in
 **out/pkg**.
 
 By default, Tailscale release v1.8.7 is built. To configure the release number,
 set the environment variable `TSTAG` to the release number, e.g.
-`TSTAG=v1.8.7 make out/pkg`.
+`TRACK=unstable TSTAG=1.9.134 make pkg`.
 
 Installation
 ------------
 
 1. Install QVPN package in QNAP App Center to provide `tun` kernel modules.
 2. Manually install Tailscale package in QNAP App Center.
-3. SSH into your QNAP
-4. Get system volume path: `getcfg SHARE_DEF defVolMP -f /etc/config/def_share.info` (e.g. `/share/CE_CACHEDEV1_DATA/`).
-5. Go to Tailscale package directory: `cd /share/CE_CACHEDEV1_DATA/.qpkg/Tailscale`
-6. Authorize your client: `./tailscale -socket var/run/tailscale/tailscaled.sock up`
+3. Open the Tailscale app and proceed with login.
 
 License
 -------
